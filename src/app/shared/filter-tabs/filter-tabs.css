@@ -1,0 +1,4 @@
+/* No box of its own: the buttons sit directly inside the parent's flex row */
+:host {
+  display: contents;
+}

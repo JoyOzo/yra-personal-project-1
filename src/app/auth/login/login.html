@@ -1,0 +1,38 @@
+<div class="section">
+  <div class="container auth-container">
+    <div class="card">
+      <div class="eyebrow">YRA Account</div>
+      <h2>Welcome back</h2>
+      <p>Sign in to access your member area.</p>
+
+      <form class="form" novalidate (submit)="onSubmit($event)">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" [formField]="loginForm.email" />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••" [formField]="loginForm.password" />
+        </div>
+
+        <label class="remember">
+          <input type="checkbox" [formField]="loginForm.remember" /> Remember me
+        </label>
+
+        <button class="btn btn-primary" type="submit" [disabled]="loading()">
+          @if (loading()) {
+            <mat-spinner diameter="20" />
+            <span>Signing in...</span>
+          } @else {
+            Sign in
+          }
+        </button>
+      </form>
+
+      <p class="note">
+        New to YRA? <a class="link" routerLink="/join-us">Create an account</a>
+      </p>
+    </div>
+  </div>
+</div>

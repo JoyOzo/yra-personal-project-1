@@ -1,0 +1,70 @@
+<div class="section">
+  <div class="container auth-container">
+    <div class="card">
+      <div class="eyebrow">YRA Membership</div>
+      <h2>Join the community</h2>
+
+      <form class="form" novalidate (submit)="onSubmit($event)">
+        <div class="grid2">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" type="text" [formField]="joinForm.fullName" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" [formField]="joinForm.email" />
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="country">Country</label>
+            <input id="country" type="text" [formField]="joinForm.country" />
+          </div>
+          <div class="field">
+            <label for="institution">Institution</label>
+            <input id="institution" type="text" [formField]="joinForm.institution" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="level">Career / research level</label>
+          <select id="level" [formField]="joinForm.level">
+            @for (level of levels; track level) {
+              <option [value]="level">{{ level }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="interests">Research interests</label>
+          <textarea id="interests" rows="3" [formField]="joinForm.interests"></textarea>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" [formField]="joinForm.password" />
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" type="password" [formField]="joinForm.confirmPassword" />
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="loading()">
+          @if (loading()) {
+            <mat-spinner diameter="20" />
+            <span>Creating account...</span>
+          } @else {
+            Create YRA membership →
+          }
+        </button>
+      </form>
+
+      <p class="note">
+        Already a member? <a class="link" routerLink="/login">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>

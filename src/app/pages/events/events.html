@@ -1,0 +1,26 @@
+<app-page-header
+  eyebrow="Stay connected"
+  heading="Events &amp; Training"
+  description="Register for upcoming YRA programmes or explore the training archive."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Upcoming</div>
+        <h2>Registration is open</h2>
+      </div>
+    </div>
+
+    @if (loading()) {
+      <div class="loading"><mat-spinner diameter="44" /></div>
+    } @else {
+      <div class="grid3">
+        @for (card of cards(); track card.id) {
+          <app-card [item]="card" (action)="openEvent($event)" />
+        }
+      </div>
+    }
+  </div>
+</section>

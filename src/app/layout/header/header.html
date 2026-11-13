@@ -1,0 +1,51 @@
+<div class="topbar">
+  <span>Young Researcher Academy · Publish · Research · Impact · Collaborate</span>
+  <span>Ile-Ife, Osun State, Nigeria</span>
+</div>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <img src="images/logo.jpg" alt="Young Researcher Academy logo" />
+      <div><strong>Young Researcher</strong><span>Academy</span></div>
+    </a>
+
+    <div class="navlinks">
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active">{{ link.label }}</a>
+      }
+    </div>
+
+    <div class="actions">
+      @if (isAuthenticated()) {
+        <span class="user-name">Hi, {{ firstName() }}</span>
+        <button type="button" class="btn btn-secondary" (click)="logout()">Logout</button>
+      } @else {
+        <a class="btn btn-secondary" routerLink="/login">Login</a>
+      }
+      <a class="btn btn-primary" routerLink="/community">Join YRA</a>
+      <button
+        class="mobile-menu"
+        type="button"
+        aria-label="Toggle menu"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="toggleMenu()"
+      >
+        {{ menuOpen() ? '✕' : '☰' }}
+      </button>
+    </div>
+  </nav>
+
+  @if (menuOpen()) {
+    <div class="mobile-nav">
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active" (click)="closeMenu()">{{ link.label }}</a>
+      }
+      @if (isAuthenticated()) {
+        <a (click)="logout()">Logout</a>
+      } @else {
+        <a routerLink="/login" (click)="closeMenu()">Login</a>
+      }
+    </div>
+  }
+</header>

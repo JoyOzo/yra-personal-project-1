@@ -1,0 +1,60 @@
+<app-page-header
+  eyebrow="Research support"
+  heading="YRA Resource Centre"
+  description="Practical research resources, templates, guides and toolkits — with free and premium access options."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <input
+        class="search"
+        placeholder="Search resources..."
+        [(ngModel)]="searchText"
+        (ngModelChange)="onSearch($event)"
+      />
+      <app-filter-tabs [tabs]="tabs" [active]="filter()" (selected)="setFilter($event)" />
+    </div>
+
+    @if (loading()) {
+      <div class="loading"><mat-spinner diameter="44" /></div>
+    } @else {
+      <div class="grid3">
+        @for (resource of resources(); track resource.id) {
+          <div class="card resource-card">
+            <div class="resource-thumb">{{ resource.type | uppercase }} · {{ resource.category | uppercase }}</div>
+            <div class="resource-body">
+              <span
+                class="badge"
+                [class.orange]="resource.type === 'premium'"
+                [class.green]="resource.type === 'free'"
+              >
+                {{ resource.type }}
+              </span>
+              <h3 class="title">{{ resource.title }}</h3>
+              <p>{{ resource.description }}</p>
+              <div class="meta">{{ resource.format }}</div>
+              @if (resource.price) {
+                <div class="price">{{ resource.price | currency: 'NGN' : 'symbol-narrow' : '1.0-0' }}</div>
+              }
+              <button
+                type="button"
+                class="btn action"
+                [class.btn-primary]="resource.type === 'premium'"
+                [class.btn-secondary]="resource.type === 'free'"
+                (click)="open(resource)"
+              >
+                {{ resource.type === 'premium' ? 'Get resource' : 'View / Download' }}
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="card">
+            <h3>No resources found</h3>
+            <p>Try another search or filter.</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

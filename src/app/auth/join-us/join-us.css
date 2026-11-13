@@ -1,0 +1,16 @@
+.auth-container {
+  max-width: 720px;
+}
+.note {
+  font-size: 13px;
+  margin-top: 17px;
+}
+button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+mat-spinner {
+  --mat-progress-spinner-active-indicator-color: #fff;
+}

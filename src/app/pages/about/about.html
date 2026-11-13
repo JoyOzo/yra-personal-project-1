@@ -1,0 +1,93 @@
+<app-page-header
+  eyebrow="About YRA"
+  heading="About the Academy"
+  description="More than a research platform — a community built on collaboration, mentorship, academic integrity and service to young scholars."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="grid2">
+      <div>
+        <div class="eyebrow">Who we are</div>
+        <h2>A collaborative community of researchers and scholars.</h2>
+        <p>
+          Young Researcher Academy is a collaborative community dedicated to academic growth, skill
+          development and research excellence.
+        </p>
+        <p>
+          YRA provides a structured environment where members can stay informed about academic
+          opportunities, develop research and writing skills, engage in scholarly discussions,
+          collaborate across disciplines, and receive mentorship and peer support.
+        </p>
+      </div>
+      <div class="card">
+        <div class="quote">
+          “To ensure that young researchers are not isolated but supported academically,
+          professionally, and intellectually, through a strong research community.”
+        </div>
+        <p class="purpose">YRA Purpose</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Our direction</div>
+        <h2>Vision, Mission &amp; Purpose</h2>
+      </div>
+    </div>
+    <div class="grid3">
+      @for (item of directions; track item.tag; let isEven = $even) {
+        <div class="card" appHoverLift>
+          <span class="badge" [class.orange]="isEven">{{ item.tag }}</span>
+          <h3 class="title">{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Our values</div>
+        <h2>What guides YRA</h2>
+      </div>
+    </div>
+    <div class="grid3">
+      @for (value of values; track value.title; let i = $index; let isOdd = $odd) {
+        <div class="card" appHoverLift>
+          <div class="icon" [class.orange]="isOdd">0{{ i + 1 }}</div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Leadership</div>
+        <h2>Meet the team</h2>
+      </div>
+    </div>
+    <div class="grid3">
+      @for (person of team; track person.name; let isOdd = $odd) {
+        <div class="card" appHoverLift>
+          <div class="icon" [class.orange]="isOdd">{{ person.initials }}</div>
+          <h3>{{ person.name }}</h3>
+          <p><b>{{ person.role }}</b></p>
+          <p>{{ person.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

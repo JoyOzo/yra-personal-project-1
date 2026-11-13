@@ -1,0 +1,44 @@
+<app-page-header
+  eyebrow="Learn with YRA"
+  heading="Programmes"
+  description="Structured seminars, workshops, trainings, bootcamps and masterclasses designed around research development."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="tabs">
+      <app-filter-tabs [tabs]="tabs" [active]="filter()" (selected)="filter.set($event)" />
+    </div>
+
+    @if (loading()) {
+      <div class="loading"><mat-spinner diameter="44" /></div>
+    } @else {
+      <div class="grid3">
+        @for (programme of programmes(); track programme.id) {
+          <div class="card" appHoverLift>
+            <span class="badge" [class.orange]="programme.tone === 'orange'">{{ programme.tag }}</span>
+            <h3 class="title">{{ programme.title }}</h3>
+            <p>{{ programme.summary }}</p>
+            <div class="meta">
+              {{ programme.mode }} · {{ programme.duration }} · {{ programme.fee > 0 ? 'Paid' : 'Free' }}
+            </div>
+            <button
+              type="button"
+              class="btn action"
+              [class.btn-primary]="programme.tone === 'teal'"
+              [class.btn-secondary]="programme.tone === 'orange'"
+              (click)="open(programme)"
+            >
+              View programme
+            </button>
+          </div>
+        } @empty {
+          <div class="card">
+            <h3>No programmes in this category yet</h3>
+            <p>Check back soon or try another category.</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

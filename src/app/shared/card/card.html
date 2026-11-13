@@ -1,0 +1,44 @@
+<div
+  class="card"
+  appHoverLift
+  [class.pillar]="item.variant === 'pillar'"
+  [class.event-card]="item.variant === 'event'"
+>
+  @if (item.imageText) {
+    <div class="event-img" [class.orange]="item.imageTone === 'orange'">{{ item.imageText }}</div>
+  }
+
+  <div [class.event-body]="item.variant === 'event'">
+    @if (item.icon) {
+      <div class="icon" [class.orange]="item.iconTone === 'orange'">{{ item.icon }}</div>
+    }
+    @if (item.badge) {
+      <span
+        class="badge"
+        [class.orange]="item.badgeTone === 'orange'"
+        [class.green]="item.badgeTone === 'green'"
+      >
+        {{ item.badge }}
+      </span>
+    }
+
+    <h3>{{ item.title }}</h3>
+
+    @if (item.meta) {
+      <div class="meta">{{ item.meta }}</div>
+    }
+    <p>{{ item.description }}</p>
+
+    @switch (item.actionStyle ?? 'link') {
+      @case ('primary') {
+        <button type="button" class="btn btn-primary" (click)="onAction()">{{ item.actionLabel }}</button>
+      }
+      @case ('secondary') {
+        <button type="button" class="btn btn-secondary" (click)="onAction()">{{ item.actionLabel }}</button>
+      }
+      @default {
+        <button type="button" class="link" (click)="onAction()">{{ item.actionLabel }}</button>
+      }
+    }
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Young Researcher Academy</div>
+      <h1>Building Researchers.<br />Building Knowledge.<br />Creating <span>Impact.</span></h1>
+      <p class="lead">
+        A collaborative community for young researchers and scholars committed to academic growth,
+        research excellence, mentorship, knowledge-sharing and meaningful impact.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" routerLink="/about">Explore YRA →</a>
+        <a class="btn btn-secondary" routerLink="/events">Upcoming Training</a>
+      </div>
+      <div class="meta hero-meta">
+        <span>✓ Research development</span>
+        <span>✓ Structured training</span>
+        <span>✓ Mentorship &amp; collaboration</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card"><img src="images/logo.jpg" alt="YRA brand visual" /></div>
+      <div class="floating">
+        <b>Join our research community</b>Connect, learn, publish and create impact with other researchers.
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The YRA Framework</div>
+        <h2>What YRA stands for</h2>
+      </div>
+      <p>Four connected pathways through which YRA supports researchers.</p>
+    </div>
+    <div class="grid4">
+      @for (item of pillars; track item.id) {
+        <app-card [item]="item" (action)="onCardAction($event)" />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Don't miss out</div>
+        <h2>Upcoming events</h2>
+      </div>
+      <a class="btn btn-ghost" routerLink="/events">View all events →</a>
+    </div>
+    <div class="grid3">
+      @for (item of events(); track item.id) {
+        <app-card [item]="item" (action)="onCardAction($event)" />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split-banner">
+      <div>
+        <div class="eyebrow">YRA Resource Centre</div>
+        <h2>Resources for your research journey.</h2>
+        <p>
+          Access free research materials, practical guides, templates and premium resources designed
+          to support researchers at different stages.
+        </p>
+      </div>
+      <div class="grid2">
+        @for (item of resourceCards; track item.id) {
+          <app-card [item]="item" (action)="onCardAction($event)" />
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">YRA Media</div>
+        <h2>Learn from past sessions</h2>
+        <p>Watch seminar and training recordings through the YRA YouTube channel.</p>
+      </div>
+      <a class="btn btn-secondary" routerLink="/media">View media library</a>
+    </div>
+    <div class="video"><div class="play">▶</div></div>
+  </div>
+</section>

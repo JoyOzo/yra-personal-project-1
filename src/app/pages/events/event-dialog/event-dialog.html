@@ -1,0 +1,44 @@
+<div class="modal-head">
+  <div>
+    <span class="badge" [class.orange]="event.tone === 'orange'">{{ event.tag }}</span>
+    <h2 mat-dialog-title class="title">{{ event.title }}</h2>
+  </div>
+  <button type="button" class="close" mat-dialog-close aria-label="Close">×</button>
+</div>
+
+<mat-dialog-content>
+  <p>{{ event.description }}</p>
+  <div class="meta">
+    📅 {{ event.date | eventDate: 'long' }} · 💻 {{ event.mode }} · 🎓 YRA Programme
+  </div>
+
+  <div class="card fee">
+    <b>Registration fee</b>
+    <div class="price">{{ event.fee | currency: 'NGN' : 'symbol-narrow' : '1.0-0' }}</div>
+  </div>
+
+  <form class="form" novalidate (submit)="onSubmit($event)">
+    <div class="grid2">
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <input id="fullName" type="text" placeholder="Your full name" [formField]="registerForm.fullName" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" [formField]="registerForm.email" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="institution">Institution</label>
+      <input id="institution" type="text" placeholder="University / Organisation" [formField]="registerForm.institution" />
+    </div>
+
+    <div class="field">
+      <label for="researchArea">Research area</label>
+      <input id="researchArea" type="text" placeholder="e.g. Science Education" [formField]="registerForm.researchArea" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Continue to registration &amp; payment →</button>
+  </form>
+</mat-dialog-content>

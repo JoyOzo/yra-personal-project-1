@@ -1,0 +1,39 @@
+<div class="modal-head">
+  <div>
+    <span
+      class="badge"
+      [class.orange]="resource.type === 'premium'"
+      [class.green]="resource.type === 'free'"
+    >
+      {{ resource.type }}
+    </span>
+    <h2 mat-dialog-title class="title">{{ resource.title }}</h2>
+  </div>
+  <button type="button" class="close" mat-dialog-close aria-label="Close">×</button>
+</div>
+
+<mat-dialog-content>
+  <p>{{ resource.description }}</p>
+  <div class="meta">{{ resource.format }}</div>
+
+  <div class="card access">
+    <b>Access</b>
+    <div class="price">
+      @if (resource.price) {
+        {{ resource.price | currency: 'NGN' : 'symbol-narrow' : '1.0-0' }}
+      } @else {
+        Free
+      }
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="btn"
+    [class.btn-primary]="resource.type === 'premium'"
+    [class.btn-teal]="resource.type === 'free'"
+    (click)="proceed()"
+  >
+    {{ resource.type === 'premium' ? 'Proceed to payment' : 'Access resource' }}
+  </button>
+</mat-dialog-content>

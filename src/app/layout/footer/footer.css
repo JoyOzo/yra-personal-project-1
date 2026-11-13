@@ -1,0 +1,14 @@
+.footer-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+}
+.footer h3 {
+  color: #fff;
+  margin: 12px 0 4px;
+}
+.small {
+  font-size: 13px;
+}

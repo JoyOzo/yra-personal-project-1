@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+.card {
+  height: 100%;
+}
+.event-img {
+  white-space: pre-line; /* lets "\n" in the text become a line break */
+}
+.event-img.orange {
+  background: linear-gradient(135deg, #ff861b, #ffb56e);
+}
+button.link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.btn {
+  margin-top: 15px;
+}

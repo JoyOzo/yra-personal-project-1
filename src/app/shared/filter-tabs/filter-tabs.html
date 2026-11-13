@@ -1,0 +1,10 @@
+@for (tab of tabs(); track tab.value) {
+  <button
+    type="button"
+    class="tab"
+    [class.active]="active() === tab.value"
+    (click)="selected.emit(tab.value)"
+  >
+    {{ tab.label }}
+  </button>
+}

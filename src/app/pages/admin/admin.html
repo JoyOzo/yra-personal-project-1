@@ -1,0 +1,79 @@
+<div class="section">
+  <div class="container">
+    <div class="dashboard">
+      <aside class="side">
+        <div class="side-brand">YRA ADMIN</div>
+        @for (link of sideLinks; track link; let isFirst = $first) {
+          <button type="button" [class.active]="isFirst">{{ link }}</button>
+        }
+      </aside>
+
+      <div class="dash-main">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Administration</div>
+            <h2>YRA Control Centre</h2>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="createContent()">
+            + Create content
+          </button>
+        </div>
+
+        <div class="stats">
+          @for (stat of stats; track stat.label) {
+            <div class="stat">
+              <strong>{{ stat.value }}</strong>
+              <span>{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="card mt">
+          <h3>Recent registrations</h3>
+          <p>
+            Role-based admin should allow authorised executives to manage only their permitted areas.
+          </p>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Participant</th>
+                  <th>Programme</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of registrations; track row.participant) {
+                  <tr>
+                    <td>{{ row.participant }}</td>
+                    <td>{{ row.programme }}</td>
+                    <td>
+                      @if (row.amount === 0) {
+                        Free
+                      } @else {
+                        {{ row.amount | currency: 'NGN' : 'symbol-narrow' : '1.0-0' }}
+                      }
+                    </td>
+                    <td>
+                      <span class="badge" [class.green]="row.status === 'Paid'">{{ row.status }}</span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid3 mt">
+          @for (area of focusAreas; track area.title) {
+            <div class="card">
+              <h3>{{ area.title }}</h3>
+              <p>{{ area.text }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

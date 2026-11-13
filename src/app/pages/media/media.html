@@ -1,0 +1,28 @@
+<app-page-header
+  eyebrow="Watch &amp; learn"
+  heading="YRA Media"
+  description="Seminar recordings, training sessions and research conversations."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="grid2">
+      @for (video of videos; track video.title) {
+        <div class="card" appHoverLift>
+          <div
+            class="video"
+            role="button"
+            tabindex="0"
+            [attr.aria-label]="'Play ' + video.title"
+            (click)="play(video.title)"
+            (keydown.enter)="play(video.title)"
+          >
+            <div class="play">▶</div>
+          </div>
+          <h3 class="title">{{ video.title }}</h3>
+          <p>{{ video.subtitle }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

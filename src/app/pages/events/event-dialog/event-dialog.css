@@ -1,0 +1,26 @@
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.title {
+  margin-top: 10px;
+}
+.close {
+  border: 0;
+  background: #eef3f5;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.fee {
+  margin: 18px 0;
+  background: #f8fbfc;
+}
+.fee .price {
+  font-size: 24px;
+}

@@ -1,0 +1,15 @@
+<app-page-header
+  eyebrow="Stay informed"
+  heading="Research Opportunities"
+  description="Academic calls, grants, fellowships, conferences and other opportunities curated for researchers."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="grid3">
+      @for (item of opportunities; track item.id) {
+        <app-card [item]="item" (action)="onView($event)" />
+      }
+    </div>
+  </div>
+</section>

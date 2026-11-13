@@ -1,0 +1,42 @@
+:host {
+  display: contents;
+}
+
+.navlinks a.active {
+  color: var(--teal);
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--teal);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 24px 16px;
+    background: #fff;
+    border-top: 1px solid var(--line);
+  }
+  .mobile-nav a {
+    padding: 12px 0;
+    font-weight: 650;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+  }
+  .mobile-nav a.active {
+    color: var(--teal);
+  }
+}
+
+@media (max-width: 680px) {
+  .user-name {
+    display: none;
+  }
+}

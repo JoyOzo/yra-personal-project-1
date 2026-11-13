@@ -1,0 +1,8 @@
+.loading {
+  display: grid;
+  place-items: center;
+  padding: 70px 0;
+}
+mat-spinner {
+  --mat-progress-spinner-active-indicator-color: var(--teal);
+}
