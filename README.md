@@ -1,59 +1,38 @@
-# YraPersonalProject1
+# YRA Corporate Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6.
+A responsive Angular frontend for Young Researcher Academy (YRA), built from the provided design reference as Personal Project 1 for the Seamfix NextGen Academy Angular training.
 
-## Development server
+**Live demo:** <your-deployed-url>
+Repository: https://github.com/JoyOzo/yra-personal-project-1
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Pages: Home, About, Programmes, Resources, Events, Media, Opportunities, Community, Admin, Login and Join Us
+- Registration and login with session persistence (localStorage for "Remember me", otherwise sessionStorage)
+- Route guard protecting **Resources** and **Media**; unauthenticated users are redirected to Login and returned to their page after signing in
+- Resource search and filters, event registration dialog, programme filters
+- Success, error and info notifications with MatSnackBar; loading states with MatProgressSpinner
+- Responsive layout for desktop, tablet and mobile
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Technologies
 
-## Code scaffolding
+Angular 22 (standalone components, new control flow), Angular Signals and Signal Forms, NgRx (Store, Effects, Store Devtools), Angular Material (Snackbar, Progress Spinner, Dialog), RxJS, custom CSS, TypeScript.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Angular concepts demonstrated
 
-```bash
-ng generate component component-name
-```
+| Concept | Where |
+|---|---|
+| Components, templates, data binding | Every page; `[(ngModel)]` search on Resources |
+| Structural / attribute directives | `@if`, `@for`, `@switch`; custom `appHoverLift` directive |
+| Pipes | Built-in `currency`, `uppercase`; custom `eventDate` pipe |
+| Services and DI | `AuthService`, `ResourceService`, `EventService`, `NotificationService` |
+| Signals | Component state, `computed()`, signal inputs/outputs |
+| Component communication | `input()` / `output()` (page header, filter tabs), `@Input()` / `@Output()` (card) |
+| NgRx | `auth`, `resources` and `events` slices with actions, reducers, selectors and effects |
+| Routing | Eager Login and Join Us; lazy-loaded feature pages; `PreloadAllModules` |
+| Guards | Functional `authGuard` on Resources and Media |
+| Forms | Angular Signal Forms with validation errors shown only in snackbars |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Architecture
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feature-based folders with a smart / presentational component pattern: pages fetch data and decide behaviour, while shared components (`Card`, `PageHeader`, `FilterTabs`) only display data and emit events. State follows the Redux pattern** through NgRx. 
