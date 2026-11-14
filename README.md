@@ -36,3 +36,19 @@ Angular 22 (standalone components, new control flow), Angular Signals and Signal
 ## Architecture
 
 Feature-based folders with a smart / presentational component pattern: pages fetch data and decide behaviour, while shared components (`Card`, `PageHeader`, `FilterTabs`) only display data and emit events. State follows the Redux pattern** through NgRx. 
+
+
+## Run locally
+
+bash
+git clone https://github.com/JoyOzo/yra-personal-project-1.git
+cd yra-personal-project-1
+npm install
+ng serve
+
+
+Open http://localhost:4200. Accounts are stored in the browser, so use **Join YRA → Create membership** to register first, then log in.
+
+## Notes
+
+This is a frontend-only demo: users, resources and events are simulated in services and the browser's storage, and no passwords should be reused.
