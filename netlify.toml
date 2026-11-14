@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "dist/yra-personal-project-1/browser"
+
+[build.environment]
+  NODE_VERSION = "22"
