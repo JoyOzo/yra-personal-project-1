@@ -2,7 +2,7 @@
 
 A responsive Angular frontend for Young Researcher Academy (YRA), built from the provided design reference as Personal Project 1 for the Seamfix NextGen Academy Angular training.
 
-**Live demo:** <your-deployed-url>
+Live demo: <yra-personal-project-1.netlify.app>
 Repository: https://github.com/JoyOzo/yra-personal-project-1
 
 ## Features
